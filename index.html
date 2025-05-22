@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Helper 2.0</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    #chatOutput {
+      height: 600px;
+      overflow-y: auto;
+      padding: 10px;
+      background: white;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    #chatOutput div {
+      margin: 5px 0;
+    }
+    #userInput {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="chatOutput"></div>
+  <input type="text" id="userInput" placeholder="Ask something..." />
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "helper2.0",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "AI Helper App",
+  "author": "Your Name",
+  "scripts": {
+    "start": "electron .",
+    "obfuscate": "javascript-obfuscator main.js preload.js renderer.js --output build --compact true --control-flow-flattening true",
+    "dist": "npm run obfuscate && electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.helper.app",
+    "productName": "Helper 2.0",
+    "files": [
+      "build/**/*",
+      "index.html",
+      "!node_modules/@google/generative-ai/dist/**"
+    ],
+    "asar": true,
+    "win": {
+      "target": "portable"
+    },
+    "extraResources": [
+      {
+        "from": "node_modules/@google/generative-ai/dist/",
+        "to": "app/node_modules/@google/generative-ai/dist/",
+        "filter": ["**/*"]
+      }
+    ]
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.17.2",
+    "electron": "^29.4.6"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3",
+    "javascript-obfuscator": "^4.0.0"
+  }
+}
